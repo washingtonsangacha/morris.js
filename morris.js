@@ -1806,7 +1806,9 @@ Licensed under the BSD-2-Clause License.
         if (this.options.labels[j] === false) {
           continue;
         }
-        content += "<div class='morris-hover-point' style='color: " + (this.colorFor(row, j, 'label')) + "'>\n  " + this.options.labels[j] + ":\n  " + (this.yLabelFormat(y, j)) + "\n</div>";
+        if(y !== null){
+        	content += "<div class='morris-hover-point' style='color: " + (this.colorFor(row, j, 'label')) + "'><small>\n  " + this.options.labels[j] + ":\n  " + (this.yLabelFormat(y, j)) + "\n</small></div>";
+        }
       }
       if (typeof this.options.hoverCallback === 'function') {
         content = this.options.hoverCallback(index, this.options, content, row.src);
